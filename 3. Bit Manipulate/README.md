@@ -2,9 +2,6 @@
 
 Speaker: Mai Thanh Hiep
 
-Lecture slide: https://docs.google.com/presentation/d/1xP_DApsIHGzGYmpoNDznCI5XDmp2f5AffLwelHsiv3Q/edit?usp=sharing 
-
-
 
 ## 1. Basic Bitwise Combination
 
