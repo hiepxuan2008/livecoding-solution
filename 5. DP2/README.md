@@ -169,3 +169,8 @@ class Solution:
 
 
 
+## 5. Partition to K Equal Sum Subsets
+
+Problem link: https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
+
+Solution: https://leetcode.com/problems/partition-to-k-equal-sum-subsets/discuss/1494999
