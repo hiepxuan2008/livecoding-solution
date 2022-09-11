@@ -103,13 +103,13 @@ Problem link: https://leetcode.com/problems/longest-substring-without-repeating-
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         l = 0
-        seen = [-1] * 128
+        lastIndex = [-1] * 128
         ans = 0
         for r, c in enumerate(s):
-            if seen[ord(c)] >= l:
-                l = seen[ord(c)] + 1
+            if lastIndex[ord(c)] >= l:
+                l = lastIndex[ord(c)] + 1
             ans = max(ans, r - l + 1)
-            seen[ord(c)] = r
+            lastIndex[ord(c)] = r
         return ans
 ```
 
