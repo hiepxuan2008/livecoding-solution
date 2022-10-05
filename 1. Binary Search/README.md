@@ -1,4 +1,4 @@
-# Binary Search - Live Coding Solutions
+# Binary Search (BASIC) - Live Coding Solutions
 
 Speaker: Mai Thanh Hiep
 
