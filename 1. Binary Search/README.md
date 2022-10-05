@@ -109,34 +109,7 @@ Complexity:
 - Space: `O(1)`
 
 
-
-## 5. Find Minimum in Rotated Sorted Array
-
-Problem link: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
-
-```python
-class Solution:
-    def findMin(self, nums: List[int]) -> int:
-        left = 0
-        right = len(nums) - 1
-        while left <= right:
-            mid = (left + right) // 2
-            if (mid == left or nums[mid-1] > nums[mid]) and (mid == right or nums[mid] < nums[mid+1]):
-                return nums[mid]
-            if nums[mid] > nums[right]:
-                left = mid + 1
-            else:
-                right = mid - 1
-```
-
-Complexity:
-
-- Time: `O(logN)`, where `N` is length of `nums` array.
-- Space: `O(1)`
-
-
-
-## 6. Sqrt(x)
+## 5. Compute the Square Root of x, Sqrt(x), return truncated integer
 
 Problem link: https://leetcode.com/problems/sqrtx/
 
@@ -165,6 +138,33 @@ class Solution:
 Complexity:
 
 - Time: `O(log(46340))`
+- Space: `O(1)`
+
+
+## 6. Compute real Square Root of x, Sqrt(x), return double value
+
+```python
+class Solution:
+    def mySqrt(self, x: int) -> float:
+        left = 0
+        right = 46340.95
+        EPSILON = 1e-9
+
+        while right - left > EPSILON:
+            mid = (left + right) / 2
+            if mid * mid == x:
+                return mid
+            if mid * mid < x:
+                left = mid
+            else:
+                right = mid
+
+        return right
+```
+
+Complexity:
+
+- Time: `O(log(46340 / s))`, where `s = 10^-9` is the tolerance.
 - Space: `O(1)`
 
 
@@ -198,55 +198,26 @@ Complexity:
 - Space: `O(1)`
 
 
+## 8. Find Minimum in Rotated Sorted Array
 
-## 8. Minimum Number of Days to Make m Bouquets
-
-Problem link: https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
+Problem link: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 
 ```python
 class Solution:
-    def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
-        # bloomDay = [1,10,3,10,2], m = 3, k = 1
-        # onDay=10, 5 bo hoa >= 3 -> good
-        # onDay=5, [o,x,o,x,o] >= 3 -> good
-        # onDay=2, [o,x,x,x,o] < 3 -> not good
-        # onDay=3, [o,x,o,x,o] >= 3 -> good
-        
-        # Có tính chất đồng biến không?
-        # Ngày tăng -> số lượng hoa nở nhiều -> làm được nhiều bó hoa
-        # Ngày giảm -> số lượng hoa nở ít -> làm được ít bó hoa
-        # -> Có đồng biến
-
-        def isGood(onDay):
-            cntBouquet = 0
-            size = 0
-            for day in bloomDay:
-                if onDay >= day:
-                    size += 1
-                else:
-                    cntBouquet += size // k
-                    size = 0
-                    
-            cntBouquet += size // k
-            return cntBouquet >= m
-        
-        left = 1
-        right = 10**9
-        ans = -1
+    def findMin(self, nums: List[int]) -> int:
+        left = 0
+        right = len(nums) - 1
         while left <= right:
-            mid = left + (right - left) // 2
-            if isGood(mid):
-                ans = mid
-                right = mid - 1
-            else:
+            mid = (left + right) // 2
+            if (mid == left or nums[mid-1] > nums[mid]) and (mid == right or nums[mid] < nums[mid+1]):
+                return nums[mid]
+            if nums[mid] > nums[right]:
                 left = mid + 1
-        return ans
+            else:
+                right = mid - 1
 ```
 
 Complexity:
 
-- Time: `O(log10^9 * N)` ~ `O(30 * N)`, where `N` is length of `bloomDay` arrays.
+- Time: `O(logN)`, where `N` is length of `nums` array.
 - Space: `O(1)`
-
-
-
