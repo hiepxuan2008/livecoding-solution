@@ -164,7 +164,7 @@ class Solution:
 
 Complexity:
 
-- Time: `O(log(46340 / s))`, where `s = 10^-9` is the tolerance.
+- Time: `O(log(46340 / s))`, where `s = 10^-12` is the tolerance.
 - Space: `O(1)`
 
 
