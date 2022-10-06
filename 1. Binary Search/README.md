@@ -148,7 +148,7 @@ class Solution:
     def mySqrt(self, x: int) -> float:
         left = 0
         right = 46340.95
-        EPSILON = 1e-9
+        EPSILON = 1e-12
 
         while right - left > EPSILON:
             mid = (left + right) / 2
@@ -159,7 +159,7 @@ class Solution:
             else:
                 right = mid
 
-        return right
+        return left
 ```
 
 Complexity:
